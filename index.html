@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afrino House - Kedai Kopi</title>
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABEL WARNA & RESET --- */
+        :root {
+            --primary: #4e342e; /* Coklat Kopi Gelap */
+            --secondary: #8d6e63; /* Coklat Kopi Muda */
+            --accent: #d4a017; /* Emas */
+            --bg-cream: #fcfaf2;
+            --text-dark: #2c2c2c;
+            --white: #ffffff;
+            --green-leaf: #558b2f; /* Aksen Hijau Daun Kopi */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER / HERO SECTION --- */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            font-weight: 300;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .address {
+            background: rgba(255,255,255,0.15);
+            padding: 12px 25px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.95rem;
+        }
+
+        .address i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+
+        /* --- MENU SECTION --- */
+        .menu-section {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--secondary);
+            margin-bottom: 40px;
+        }
+
+        .separator {
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0 auto 50px;
+            border-radius: 2px;
+        }
+
+        /* Grid Menu */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(78, 52, 46, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(78, 52, 46, 0.15);
+        }
+
+        /* Badge Hits */
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--green-leaf);
+            color: white;
+            font-size: 0.7rem;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-weight: 600;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            border-bottom: 1px dotted #ddd;
+            padding-bottom: 8px;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: var(--green-leaf);
+            font-size: 1.1rem;
+        }
+
+        .item-desc {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* --- FOOTER & SOSIAL MEDIA --- */
+        footer {
+            background: var(--primary);
+            color: #ccc;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .social-section {
+            margin: 30px 0;
+        }
+
+        .social-label {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: var(--accent);
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #25D366;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-btn i {
+            margin-right: 10px;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Responsif HP */
+        @media (max-width: 600px) {
+            .logo { font-size: 2.5rem; }
+            .menu-card { padding: 20px; }
+            header { height: 60vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAMA USAHA & 2. ALAMAT -->
+    <header>
+        <div class="logo">Afrino House</div>
+        <p class="tagline">Coffee • Tea • Snacks</p>
+        
+        <div class="address">
+            <i class="fas fa-map-marker-alt"></i>
+            Jl. Tanjung Harapan, Kota Kamu
+        </div>
+    </header>
+
+    <!-- 3. MENU DAN HARGA -->
+    <section class="menu-section">
+        <h2 class="section-title">Our Menu</h2>
+        <p class="section-subtitle">Racikan terbaik untukmu</p>
+        <div class="separator"></div>
+
+        <div class="menu-grid">
+            <!-- Kategori KOPI -->
+            
+            <!-- Menu 1 -->
+            <div class="menu-card">
+                <span class="badge">HOT</span>
+                <div class="menu-item">
+                    <span class="item-name">Americano</span>
+                    <span class="item-price">Rp 18k</span>
+                </div>
+                <p class="item-desc">Espresso + air panas. Bold & intense.</p>
+            </div>
+
+            <!-- Menu 2 -->
+            <div class="menu-card">
+                <span class="badge">BEST SELLER</span>
+                <div class="menu-item">
+                    <span class="item-name">Cappuccino</span>
+                    <span class="item-price">Rp 22k</span>
+                </div>
+                <p class="item-desc">Espresso + susu steamed. Creamy.</p>
+            </div>
+
+            <!-- Menu 3 -->
+            <div class="menu-card">
+                <div class="menu-item">
+                    <span class="item-name">Vanilla Latte</span>
+                    <span class="item-price">Rp 25k</span>
+                </div>
+                <p class="item-desc">Espresso + susu + sirup vanilla.</p>
+            </div>
+
+            <!-- Menu 4 -->
+            <div class="menu-card">
+                <div class="menu-item">
+                    <span class="item-name">Hazelnut Latte</span>
+                    <span class="item-price">Rp 26k</span>
+                </div>
+                <p class="item-desc">Aroma hazelnut yang gurih.</p>
+            </div>
+
+            <!-- Menu 5 -->
+            <div class="menu-card">
+                <div class="menu-item">
+                    <span class="item-name">Kopi Aren</span>
+                    <span class="item-price">Rp 24k</span>
+                </div>
+                <p class="item-desc">Signature! Kopi + gula aren.</p>
+            </div>
+
+            <!-- Menu 6 -->
+            <div class="menu-card">
+                <span class="badge">ICED</span>
+                <div class="menu-item">
+                    <span class="item-name">Cold Brew</span>
+                    <span class="item-price">Rp 25k</span>
+                </div>
+                <p class="item-desc">Proses seduh dingin 12 jam.</p>
+            </div>
+
+            <!-- Kategori NON KOPI -->
+            
+            <!-- Menu 7 -->
+            <div class="menu-card" style="border-left-color: var(--green-leaf);">
+                <div class="menu-item">
+                    <span class="item-name">Matcha Latte</span>
+                    <span class="item-price">Rp 28k</span>
+                </div>
+                <p class="item-desc">Matcha Jepang + susu oat/susu.</p>
+            </div>
+
+            <!-- Menu 8 -->
+            <div class="menu-card" style="border-left-color: var(--green-leaf);">
+                <div class="menu-item">
+                    <span class="item-name">Thai Tea</span>
+                    <span class="item-price">Rp 20k</span>
+                </div>
+                <p class="item-desc">Teh hitam Thailand asli.</p>
+            </div>
+
+            <!-- Menu 9 -->
+            <div class="menu-card" style="border-left-color: var(--green-leaf);">
+                <div class="menu-item">
+                    <span class="item-name">Red Velvet</span>
+                    <span class="item-price">Rp 25k</span>
+                </div>
+                <p class="item-desc">Minuman rasa red velvet creamy.</p>
+            </div>
+
+            <!-- Menu 10 -->
+            <div class="menu-card" style="border-left-color: var(--green-leaf);">
+                <div class="menu-item">
+                    <span class="item-name">Chocolate Lux</span>
+                    <span class="item-price">Rp 23k</span>
+                </div>
+                <p class="item-desc">Cokelat premium panas/dingin.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. MEDIA SOSIAL -->
+    <footer>
+        <div class="footer-logo">Afrino House</div>
+        
+        <div class="social-section">
+            <p class="social-label">Follow Kami di:</p>
+            
+            <div class="social-icons">
+                <!-- Instagram -->
+                <a href="https://instagram.com/afrinohouse" target="_blank" class="social-link" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <!-- Facebook -->
+                <a href="https://facebook.com/afrinohouse" target="_blank" class="social-link" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                
+                <!-- TikTok -->
+                <a href="https://tiktok.com/@afrinohouse" target="_blank" class="social-link" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Tombol Pesan via WhatsApp -->
+        <a href="https://wa.me/6281234567890" target="_blank" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+        </a>
+
+        <div class="copyright">
+            &copy; 2024 Afrino House. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
